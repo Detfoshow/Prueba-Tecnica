@@ -1,4 +1,10 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import Union
+
+class Item(BaseModel):
+    patente: str
+    id1: float
 
 app = FastAPI()
 
@@ -15,6 +21,12 @@ def read_id(pat_id: int, ):
 
 
 @app.get("/patente/{patente}")
+def read_pat(patente: str):
+    pat = [k for k, v in patentes.items() if v == patente][0]
+    return {"pat_id": pat, "patente": patente}
+
+
+@app.put("/id/{pat_id}")
 def read_pat(patente: str):
     pat = [k for k, v in patentes.items() if v == patente][0]
     return {"pat_id": pat, "patente": patente}
