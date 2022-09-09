@@ -1,3 +1,4 @@
+from ast import Str
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Union
@@ -12,6 +13,14 @@ patentes = {
   1: "AAAA000",
   2: "AAAA001",
   3: "AAAA002",
+  4: "AAAA003",
+  5: "AAAA004",
+  6: "AAAA005",
+  7: "AAAA006",
+  8: "AAAA007",
+  9: "AAAA008",
+  10: "AAAA009",
+  11: "AAAA010"
 }
 
 @app.get("/id/{pat_id}")
